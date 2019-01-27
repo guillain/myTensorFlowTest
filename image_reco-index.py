@@ -3,7 +3,8 @@ import tensorflow as tf
 import numpy as np
 
 img_location = "http://dev-collab.tontonserver.com/photo/test.jpg"
-img_title = "test.jpg"
+#img_location = "http://farm2.static.flickr.com/1214/737650895_67822eddc7.jpg"
+img_title = "737650895_67822eddc7.jpg"
 
 
 def run_inference_on_image(image):
@@ -41,11 +42,12 @@ def index_new_document(img_title, img_location, result_dictionary):
         result_nested_obj.append({"tag":key, "score":value})
 
     doc = {
-    "title" : img_title,
-    "location" : img_location,
-    "tags" : result_nested_obj
+        "title" : img_title,
+        "location" : img_location,
+        "tags" : result_nested_obj
     }
     res = es.index(index='imagerepository', doc_type='image', body=doc)
+    return res
 
 # Call the function
 if __name__ == '__main__':

@@ -1,0 +1,8 @@
+tensorflow
+numpy
+matplotlib
+sklearn
+logging
+random
+flask
+flask_ask
